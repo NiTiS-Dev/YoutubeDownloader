@@ -21,7 +21,8 @@ public class Program
 	}
 	public static void Main(Options args)
 	{
-		File executorFile = new(System.Reflection.Assembly.GetExecutingAssembly().Location);
+		string executorFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+		File executorFile = new(string.IsNullOrWhiteSpace(executorFilePath) ? "ytdownloader" : executorFilePath);
 
 		if (string.IsNullOrWhiteSpace(args.Link))
 		{
